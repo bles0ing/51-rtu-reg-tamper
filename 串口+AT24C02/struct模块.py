@@ -5,7 +5,7 @@ ser=serial.Serial(port="COM9",baudrate=4800,timeout=1)
 def ser_read():
     ser.reset_input_buffer()
     ser.write(b'READ\n')
-    time.sleep(1.5)
+    time.sleep(1.5)#因为是1s的超时中断，所以要延时
 
     if ser.in_waiting:
         data=ser.read(ser.in_waiting)
