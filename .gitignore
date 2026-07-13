@@ -5,3 +5,4 @@ List/
 *.hex        
 *.uvopt
 *.bak
+git rm -r --cached Obj/ List/
