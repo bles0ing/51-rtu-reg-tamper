@@ -1,0 +1,27 @@
+#include <REGX52.H>
+#include "Uart.h"
+#include "AT24C02.h"
+#include "Delay.h"
+
+unsigned char found=0;
+
+void main(){
+
+	UART_Init();
+	while(1){
+		if(found){
+			P2_0=0;
+		}
+	}
+}
+
+void UART_Routine() interrupt 4{
+	if(RI){
+		RI=0;
+		Uart_SendByte(SBUF);
+		if(SBUF=="hello"){
+			found=1;
+		}
+		
+	}
+}
